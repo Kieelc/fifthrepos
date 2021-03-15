@@ -24,6 +24,7 @@ namespace BankingApp
         decimal cInvestmentBalance = 3138.78m;
         decimal amountTransfer = 0.0m;
         decimal fromBalance = 4346.37m, toBalance = 1386.37m;
+        decimal cChequeTransFee = 2.00m;
 
         // use this two variables to keep track which radio button has clicked
         string fromRadioButtonChecked = "SavingsRadioButtonOn";
@@ -86,7 +87,7 @@ namespace BankingApp
             }
             else
             // Handle insufficient fund
-                if (amountTransfer > fromBalance)
+                if ((amountTransfer + cChequeTransFee) > fromBalance)
                 {
                     MessageBox.Show("Error! You have insufficient fund. Enter another amount");
                     Keyboard.Focus(amountTextBox);
